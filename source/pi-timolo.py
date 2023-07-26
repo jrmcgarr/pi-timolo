@@ -432,6 +432,8 @@ else:
     CAM_MAX_WIDTH, CAM_MAX_HEIGHT = CAM_MAX_RESOLUTION.width, CAM_MAX_RESOLUTION.height
     if CAM_MAX_WIDTH == "3280":
         picameraVer = "2"
+    if CAM_MAX_WIDTH == "4056":
+        picameraVer = "HQ"
     else:
         picameraVer = "1"
     logging.info("PiCamera Module Hardware is Ver %s", picameraVer)
@@ -544,6 +546,9 @@ LINE_COLOR = cvWhite  # color of lines to highlight motion stream area
 if picameraVer == "2":
     imageWidthMax = 3280
     imageHeightMax = 2464
+if picameraVer == "HQ":
+    imageWidthMax = 4056
+    imageHeightMax = 3040
 else:
     imageWidthMax = 2592
     imageHeightMax = 1944
@@ -1601,6 +1606,8 @@ def takeDayImage(filename, cam_sleep_time):
         # Day Automatic Mode
         camera.exposure_mode = "auto"
         camera.awb_mode = "auto"
+        #camera.iso = 400
+        camera.shutter_speed = 400
         if IMAGE_GRAYSCALE:
             camera.color_effects = (128, 128)
         time.sleep(cam_sleep_time)  # use motion or TL camera sleep to get AWB
