@@ -51,20 +51,20 @@ else   # New Install
 fi
 
 for fname in "${timoloFiles[@]}" ; do
-    wget_output=$(wget -O $fname -q --show-progress https://raw.github.com/pageauc/pi-timolo/master/source/$fname)
+    wget_output=$(wget -O $fname -q --show-progress https://raw.githubusercontent.com/jrmcgarr/pi-timolo/master/source/$fname)
     if [ $? -ne 0 ]; then
-        wget_output=$(wget -O $fname -q https://raw.github.com/pageauc/pi-timolo/master/source/$fname)
+        wget_output=$(wget -O $fname -q https://raw.githubusercontent.com/jrmcgarr/pi-timolo/master/source/$fname)
         if [ $? -ne 0 ]; then
             echo "ERROR : $fname wget Download Failed. Possible Cause Internet Problem."
         else
-            wget -O $fname https://raw.github.com/pageauc/pi-timolo/master/source/$fname
+            wget -O $fname https://raw.githubusercontent.com/jrmcgarr/pi-timolo/master/source/$fname
         fi
     fi
 done
 
 wget -O config.py.new -q --show-progress https://raw.github.com/pageauc/pi-timolo/master/source/config.py
 if [ $? -ne 0 ] ;  then
-    wget -O config.py.new https://raw.github.com/pageauc/pi-timolo/master/source/config.py
+    wget -O config.py.new https://raw.githubusercontent.com/jrmcgarr/pi-timolo/master/source/config.py
     wget -O watch-app-new.sh https://raw.github.com/pageauc/pi-timolo/master/source/watch-app.sh
     wget -O video.conf.new https://raw.github.com/pageauc/pi-timolo/master/source/video.conf
     wget -O Readme.md https://raw.github.com/pageauc/pi-timolo/master/Readme.md
