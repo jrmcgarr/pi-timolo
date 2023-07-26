@@ -26,9 +26,9 @@ DEBUG_ON = False        # Default= False True= DEBUG_ON mode returns pixel avera
 
 # Image Settings
 # --------------
-IMAGE_NAME_PREFIX = 'cam1-'  # Default= 'cam1-' for all image file names. Eg garage-
-IMAGE_WIDTH = 1280           # Default= 1280 Full Size Image Width in px
-IMAGE_HEIGHT = 768           # Default= 720  Full Size Image Height in px
+IMAGE_NAME_PREFIX = ''  # Default= 'cam1-' for all image file names. Eg garage-
+IMAGE_WIDTH = 4056           # Default= 1280 Full Size Image Width in px
+IMAGE_HEIGHT = 3040           # Default= 720  Full Size Image Height in px
 IMAGE_FORMAT = ".jpg"        # Default= ".jpg"  image Formats .jpeg .png .gif .bmp
 IMAGE_JPG_QUAL = 95          # Default= 95 jpg Encoder Quality Values 1(low)-100(high min compression) 0=85
 IMAGE_ROTATION = 0           # Default= 0  Rotate image. Valid values: 0, 90, 180, 270
@@ -41,16 +41,16 @@ IMAGE_NO_NIGHT_SHOTS = False # Default= False True=No Night Images (Motion or Ti
 IMAGE_NO_DAY_SHOTS = False   # Default= False True=No Day Images (Motion or Timelapse)
 IMAGE_SHOW_STREAM = False    # Default= False True=Show video stream motion tracking area on full size image.
                              # Use to Align Camera for motion tracking.  Set to False when Alignment complete.
-STREAM_WIDTH = 320           # Default= 320  Width of motion tracking stream detection area
-STREAM_HEIGHT = 240          # Default= 240  Height of motion tracking stream detection area
-STREAM_FPS = 20              # Default= 20 fps PiVideoStream setting.  Single core RPI suggest 15 fps
+STREAM_WIDTH = 600           # Default= 320  Width of motion tracking stream detection area
+STREAM_HEIGHT = 600          # Default= 240  Height of motion tracking stream detection area
+STREAM_FPS = 10              # Default= 20 fps PiVideoStream setting.  Single core RPI suggest 15 fps
 STREAM_STOP_SEC = 0.7        # Default= 0.7 Allow time to stop video stream thread to release camera
 
 # Note see STREAM_FPS variable below to set motion video stream framerate for stream size above
 
 # Date/Time Settings for Displaying info Directly on Images
 # ---------------------------------------------------------
-SHOW_DATE_ON_IMAGE = True    # Default= True False=Do Not display date/time text on images
+SHOW_DATE_ON_IMAGE = False    # Default= True False=Do Not display date/time text on images
 SHOW_TEXT_FONT_SIZE = 18     # Default= 18 Size of image Font in pixel height
 SHOW_TEXT_BOTTOM = True      # Default= True Bottom Location of image Text False= Top
 SHOW_TEXT_WHITE = True       # Default= True White Colour of image Text False= Black
@@ -69,7 +69,7 @@ NIGHT_DARK_ADJUST = 4.7       # Default= 4.7 Factor to fine tune NIGHT_DARK_THRE
 
 # Time Lapse Settings
 # -------------------
-TIMELAPSE_ON = True           # Default= False True=Turn timelapse On, False=Off
+TIMELAPSE_ON = False           # Default= False True=Turn timelapse On, False=Off
 TIMELAPSE_PREFIX = "tl-"      # Default= "tl-" Prefix for All timelapse images with this prefix
 TIMELAPSE_TIMER_SEC = 120     # Default= 120 (2 min) Seconds between timelapse images.
 TIMELAPSE_DIR = "media/timelapse" # Default= "media/timelapse"  Storage Folder Path for Time Lapse Image Storage
@@ -90,7 +90,7 @@ TIMELAPSE_SUBDIR_MAX_HOURS = 0 # Default= 0 0=Off or specify MaxHours - Creates 
 # ---------------------
 MOTION_TRACK_ON = True         # Default= True True=Turns Motion Detect On, False=Off
 MOTION_TRACK_INFO_ON = True    # Default= True False= Hide detailed track progress logging messages
-MOTION_TRACK_TIMEOUT_SEC = 0.3 # Default= 0.3 seconds Resets Track if no movement tracked
+MOTION_TRACK_TIMEOUT_SEC = 2 # Default= 0.3 seconds Resets Track if no movement tracked
 MOTION_TRACK_TRIG_LEN = 50     # Default= 75 px Length of motion track to Trigger motionFound
 MOTION_TRACK_MIN_AREA = 100    # Default= 100 sq px  Minimum Area required to start tracking
 
@@ -105,7 +105,7 @@ MOTION_NUM_ON = True         # Default= True filenames by sequenced Number  Fals
 MOTION_NUM_RECYCLE_ON = True # Default= True when NumMax reached restart at NumStart instead of exiting
 MOTION_NUM_START = 1000      # Default= 1000 Start 0f motion number sequence
 MOTION_NUM_MAX  = 2000       # Default= 2000 Max number of motion images desired. 0=Continuous
-MOTION_FORCE_SEC = 3600      # Default= 3600 seconds (1 hr) OFF=0  Force an image if no Motion Detected in specified seconds.
+MOTION_FORCE_SEC = 0      # Default= 3600 seconds (1 hr) OFF=0  Force an image if no Motion Detected in specified seconds.
 MOTION_CAM_SLEEP = 0.7       # Default= 0.7 Sec of day sleep so camera can measure AWB before taking photo
 MOTION_SUBDIR_MAX_FILES = 0  # Default= 0 0=Off or specify Max Files to create new sub-folder if MAX FILES exceeded
 MOTION_SUBDIR_MAX_HOURS = 0  # Default= 0 0=Off or specify Max Hrs to create new sub-folder if MAX HOURS exceeded
